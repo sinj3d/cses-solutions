@@ -12,7 +12,7 @@ int main() {
 
     for(int k = 1; k <= n; k++){
         
-        long long res = 1LL*k*k*(k*k-1)/2 -(k-1)*(k-2)*4;
+        long long res = 1LL*k*k*(k*k-1)/2 -1*(k-1)*(k-2)*4LL;
         cout << res << "\n";
     }
 
