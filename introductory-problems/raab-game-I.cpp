@@ -17,7 +17,7 @@ int main(){
         cin >> a;
         cin >> b;
 
-        if((a+b <= n) && (a == 0) == (b == 0)){
+        if((a+b <= n) && ((a == 0) == (b == 0))){
 
             cout << "YES\n";
             for(int c = n; c > 0; c--){
