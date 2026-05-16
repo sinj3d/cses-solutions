@@ -11,18 +11,21 @@ int main(){
     cin >> n >> x;
 
 
-    unordered_map<int, int> seen; //of the form {value, index}
+    map<int, int> seen; //of the form {value, index}
+
+    if(x == 1){
+        cout << "IMPOSSIBLE";
+        return 0;
+    }
 
     for(int i = 1; i < n + 1; i++){
         int a;
         cin >> a;
-
-        if(!seen.count(x - a)){
-            seen[a] = i;
-        }else{
+        if(seen.count(x - a)){
             cout << seen[x - a] << " " << i; // zero indexed to one indexed
             return 0;
         }
+        seen[a] = i;
     }
 
     cout << "IMPOSSIBLE";
