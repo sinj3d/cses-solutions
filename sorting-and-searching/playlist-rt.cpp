@@ -1,15 +1,6 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
-
-struct custom_hash{
-    size_t operator()(int x) const{
-        x = ((x >> 16) ^ x * 0x45d9f3b);
-        x = ((x >> 16) ^ x * 0x45d9f3b);
-        x = (x >> 16) ^ x;
-        return x;
-    }
-};
 
 int main(){
 
@@ -19,24 +10,28 @@ int main(){
     int n;
     cin >> n;
 
-    unordered_map<int, int, custom_hash> last_occurence;
+    unordered_map <int, int> last_occurence;
 
     int best = 0;
     int l = 0;
-    int r = 0;
 
     for(int i = 0; i < n; i++){
         int k;
         cin >> k;
-        r = i;
 
         if(last_occurence.count(k) && last_occurence[k] >= l){
             l = last_occurence[k] + 1;
         }
-        
+
         last_occurence[k] = i;
-        best = max(best, r - l + 1);
+
+        best = max(i - l + 1, best);
+
     }
 
     cout << best;
+    return 0;
+
+
+
 }
