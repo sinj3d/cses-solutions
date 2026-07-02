@@ -20,7 +20,7 @@ int main(){
 
     for(int c: coins){
         for(int i = c; i <= x; i++){
-            combinations[i] = (combinations[i] +  combinations[i-c]) % (long long)(1e9 + 7);
+            combinations[i] = (combinations[i] + combinations[i-c]) % (long long)(1e9 + 7);
         }
     }
 

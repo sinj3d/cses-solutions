@@ -1,2 +1,6 @@
 *.exe
 introductory-problems/.exe-files/
+
+# CMake build trees
+build/
+**/build/
