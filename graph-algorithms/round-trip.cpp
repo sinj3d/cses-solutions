@@ -7,7 +7,10 @@ int dfs(vector<vector<int>>& adj, vector<bool>& seen, vector<int>& cameFrom, int
     cameFrom[cur] = prev;
     seen[cur] = true;
     for(int i : adj[cur]){
-        if(seen[i] && i != prev) return cur;
+        if(seen[i] && i != prev) {
+            cameFrom[i] = cur;
+            return cur;
+        }
         if(seen[i]) continue;
         int dest = dfs(adj, seen, cameFrom, cur, i);
         if(dest) return dest;
@@ -52,8 +55,8 @@ int main(){
     do{ 
         path.push_back(cur);
         cur = cameFrom[cur];
-    } while(cur != 0 && cur != dest);
-    if(cur != dest) path.push_back(dest);
+    } while(cur != dest);
+    path.push_back(dest);
 
     cout << path.size() << "\n";
     for(int i : path){
