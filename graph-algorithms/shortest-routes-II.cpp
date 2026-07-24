@@ -20,9 +20,9 @@ int main(){
 
     for(int i = 0; i < m; i++){
         int a, b; long long c;
-        cin >> a >> b >>c;
+        cin >> a >> b >> c;
         dist[a][b] = min(dist[a][b], c);
-        dist[b][a] = min(dist[a][b], c);;
+        dist[b][a] = min(dist[a][b], c);
     }
 
     for(int k = 1; k <= n; k++){
